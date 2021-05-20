@@ -35,6 +35,7 @@
         android:fontFamily="cursive"
         android:hint="Enter Place"
         android:inputType="textPersonName"
+        android:onClick="setAnimate"
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"

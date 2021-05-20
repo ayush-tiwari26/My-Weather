@@ -47,8 +47,11 @@ public class MainActivity extends AppCompatActivity {
         city=(EditText) findViewById(R.id.editTextCityName);
         dataDisplay=(TextView)findViewById(R.id.textDisplay);
         obj=this;
+    }
 
-
+    //Just animates back the edit text
+    public void setAnimate(View view) {
+        city.animate().alpha(1f).setDuration(1000);
     }
 
     public class DataDownloader extends AsyncTask<String, Void, String>{
@@ -137,8 +140,20 @@ public class MainActivity extends AppCompatActivity {
 
     //Sets data on user screen
     private void setData() {
+        dataDisplay.setAlpha(0f);
         dataDisplay.setText(weatherMain);
-        ((TextView)findViewById(R.id.tempratureTextView)).setText(weatherTemp);
-        ((TextView)findViewById(R.id.discriptionTextView)).setText(weatherDescription);
+        dataDisplay.animate().alpha(1f).setDuration(1000);
+
+        TextView tempText=((TextView)findViewById(R.id.tempratureTextView));
+        tempText.setAlpha(0f);
+        tempText.setText(weatherTemp);
+        tempText.animate().alpha(1f).setDuration(1000);
+
+        TextView disText=((TextView)findViewById(R.id.discriptionTextView));
+        disText.setAlpha(0f);
+        disText.setText(weatherDescription);
+        disText.animate().alpha(1f).setDuration(1000);
+
+        city.animate().alpha(0.6f).setDuration(1000);
     }
 }
